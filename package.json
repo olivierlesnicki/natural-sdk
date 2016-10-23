@@ -4,9 +4,11 @@
   "description": "A library to access the Natural API",
   "main": "index.js",
   "scripts": {
+    "build": "babel src --ignore __tests__ --out-dir dist/ && cp package.json dist/",
+    "lint": "eslint src",
+    "prepublish": ". ./resources/prepublish.sh",
     "test": "npm run lint && npm run test-only",
-    "test-only": "babel-node ./node_modules/.bin/_mocha src/**/__tests__/**/*-test.js",
-    "lint": "eslint src"
+    "test-only": "babel-node ./node_modules/.bin/_mocha src/**/__tests__/**/*-test.js"
   },
   "author": "",
   "license": "ISC",

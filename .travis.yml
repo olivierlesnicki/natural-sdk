@@ -11,3 +11,4 @@ deploy:
   on:
     tags: true
     repo: olivierlesnicki/natural-sdk
+    branch: master
