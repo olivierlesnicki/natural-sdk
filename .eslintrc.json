@@ -1,0 +1,15 @@
+{
+    "extends": "standard",
+    "globals": {
+      "fetch": true,
+      "beforeEach": true
+    },
+    "plugins": [
+        "standard",
+        "promise"
+    ],
+    "rules": {
+      "semi": 0,
+      "padded-blocks": 0
+    }
+}
