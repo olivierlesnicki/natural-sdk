@@ -2,18 +2,30 @@
   "name": "natural-sdk",
   "version": "0.0.1",
   "description": "A library to access the Natural API",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
   "scripts": {
-    "build": "babel src --ignore __tests__ --out-dir dist/ && cp package.json dist/",
-    "lint": "eslint src",
-    "prepublish": ". ./resources/prepublish.sh",
-    "test": "npm run lint && npm run test-only",
-    "test-only": "babel-node ./node_modules/.bin/_mocha src/**/__tests__/**/*-test.js"
+    "clean": "rimraf lib dist",
+    "lint": "npm run lint:src",
+    "lint:src": "eslint src",
+    "test": "babel-node ./node_modules/.bin/_mocha src/**/__tests__/**/*-test.js",
+    "test:watch": "npm test -- --watch",
+    "check": "npm run check:src",
+    "check:src": "npm run lint:src && npm run test:src",
+    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack src/index.js dist/natural.js",
+    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack src/index.js dist/natural.min.js",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib --ignore __tests__",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min",
+    "prepublish": "npm run clean && npm run check:src && npm run build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.16.0",
+    "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
     "chai": "^3.5.0",
     "eslint": "^3.8.1",
@@ -23,6 +35,7 @@
     "eslint-plugin-standard": "^2.0.1",
     "mocha": "^3.1.2",
     "sinon": "^1.17.6",
+    "webpack": "^1.13.2",
     "whatwg-fetch": "^1.0.0"
   }
 }

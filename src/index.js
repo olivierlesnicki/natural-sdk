@@ -1,7 +1,7 @@
 import createClient from './client';
 import dropdown from './api/dropdown';
 
-export default host => {
+export const init = host => {
   let client;
 
   if (!host) {
