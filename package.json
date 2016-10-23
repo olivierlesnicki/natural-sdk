@@ -1,6 +1,6 @@
 {
   "name": "natural-sdk",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A library to access the Natural API",
   "main": "lib/index.js",
   "files": [
