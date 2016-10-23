@@ -1,5 +1,13 @@
 language: node_js
 node_js:
-  - "6"
-  - "6.1"
-  - "5.11"
+- '6'
+- '6.1'
+- '5.11'
+deploy:
+  provider: npm
+  email: olivier.lesnicki@gmail.com
+  api_key:
+    secure: qvIztH2642EtvmbBKnpxEBR5Mgit55HIS8KLMxAwqHDnK3NQT5OulbOmbaSWz/qc2U3kxJko8+JXJ2NnkrijmqQ6BZ9LOEMBneT0LXM79HonTKBV6Mt3ZikCK1UnC+EmIIeWMh7B0n7fupzl3rHygWTeSFsD5ZyXKjInCNHhET3/T6D2dNytDGSs580HvwLaAIMfThwuTzA/e9KYw4sIZFb+GW2TaVazPsk5mCxsVjPiQogBX6jl2FRvgx7WRGY3xtiiGhUCHVRo10XZnCkxogA10I2hMtNYYKph2KA/+fF3tvPw2smWPfqIIN3Xh7lI3GMdzC8NQrhhDoG75x9LN1yd9gN+saNNSQvmgsr9BbNIC5sB34A/o2m8dWPWjEeKroQiuY55VwxW8+roJHR3NAoiYLvrBtSFdEJKhlzyOjt5+rrUtn820ZgGc3BFl+UzPsB7//NKfg6kZnbNEBEe1NlqOisB4gwroB2gm63D0NxvQjjAXxVRLx2kTO0COxs0M4uJESBnX6sN9J73ptAT/7cfM1Lk7dqKTWv7VjZ1uu566s4ZGEW/uZfFQ0gskTYS85x8Ul+fJAM2TOLmrogCLpazj/KH1EKtAvS6zj8cPhQoisif5n8Lbt6uECpbXmw2GysS0UuFAob3qdy5oaju8xRR6Zqhsa+r8CQ9hRvC7no=
+  on:
+    tags: true
+    repo: olivierlesnicki/natural-sdk
